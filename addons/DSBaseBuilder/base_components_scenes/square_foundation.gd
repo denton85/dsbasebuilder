@@ -1,0 +1,2 @@
+class_name SimpleFoundation
+extends FoundationComponent

@@ -1,0 +1,2 @@
+class_name WallComponent
+extends BaseBuildComponent
