@@ -26,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.11162)
 player = NodePath("../..")
 build_components = Dictionary[String, PackedScene]({
 "ceiling": ExtResource("5_2hs0m"),
+"deconstruct": null,
 "foundation": ExtResource("3_i3pqv"),
 "wall": ExtResource("4_sweqy")
 })

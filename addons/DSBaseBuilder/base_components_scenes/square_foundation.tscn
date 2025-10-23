@@ -44,3 +44,6 @@ accepts = Array[int]([2])
 [node name="Connection8" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 accepts = Array[int]([2])
+
+[node name="DeconstructComponent" parent="." instance=ExtResource("3_stk7d")]
+accepts = Array[int]([3])

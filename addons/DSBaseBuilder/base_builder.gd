@@ -12,6 +12,7 @@ enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
 
 ## When you add a new component, give it the same name as in the registry and drag the scene into this exported dictionary.
 @export var build_components: Dictionary[String, PackedScene] = {
+	"deconstruct": null
 }
 
 @export var component_names: Array[String] = []
@@ -41,6 +42,9 @@ func _process(delta: float) -> void:
 ## This is the method to place a component at a connection point. Pass in the component scene, connection, and the node you want the component added as a child of.
 func place_component(component: String, connection: Connection, parent_node: Node3D) -> void:
 	if current_build_component == null:
+		return
+	if component == "deconstruct":
+		deconstruct_component(connection)
 		return
 	var find_component: PackedScene = build_components.get(component)
 	var comp: BaseBuildComponent = find_component.instantiate()

@@ -44,6 +44,9 @@ accepts = Array[int]([2])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 accepts = Array[int]([2])
 
+[node name="DeconstructConnection" parent="." instance=ExtResource("2_k6je4")]
+accepts = Array[int]([3])
+
 [editable path="Connection"]
 [editable path="Connection2"]
 [editable path="Connection3"]
@@ -52,3 +55,4 @@ accepts = Array[int]([2])
 [editable path="WallConnection2"]
 [editable path="WallConnection3"]
 [editable path="WallConnection4"]
+[editable path="DeconstructConnection"]
