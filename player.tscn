@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://g76alnfr8hn2"]
+[gd_scene load_steps=8 format=3 uid="uid://g76alnfr8hn2"]
 
 [ext_resource type="Script" uid="uid://dag12kefal1de" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://byw03gkb1bbxc" path="res://addons/DSBaseBuilder/BaseBuilder.tscn" id="2_onrkg"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cgk1er6xjui6r" path="res://example_ui/BuildMenu.tscn" id="4_hqtel"]
 [ext_resource type="PackedScene" uid="uid://q7vl50cbfvyt" path="res://addons/DSBaseBuilder/base_components_scenes/wall.tscn" id="4_sweqy"]
 [ext_resource type="PackedScene" uid="uid://ci3f1me35i1yo" path="res://addons/DSBaseBuilder/base_components_scenes/square_ceiling.tscn" id="5_2hs0m"]
-[ext_resource type="PackedScene" uid="uid://cwqv810xp5x84" path="res://addons/DSBaseBuilder/base_components_scenes/DemoTestFail.tscn" id="6_1jxqw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 
@@ -27,11 +26,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.11162)
 player = NodePath("../..")
 build_components = Dictionary[String, PackedScene]({
 "ceiling": ExtResource("5_2hs0m"),
-"demo": ExtResource("6_1jxqw"),
 "foundation": ExtResource("3_i3pqv"),
 "wall": ExtResource("4_sweqy")
 })
-current_build_component = ExtResource("3_i3pqv")
 
 [node name="BuildMenu" parent="." node_paths=PackedStringArray("base_builder") instance=ExtResource("4_hqtel")]
 visible = false

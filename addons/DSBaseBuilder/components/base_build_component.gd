@@ -9,3 +9,6 @@ var structure: BaseStructure
 @export var is_rotatable: bool = false
 ## This defines the amount of rotation it will recieve every time the rotate action happens.
 @export var degrees_of_rotation: float = 0
+
+func deconstruct() -> void:
+	queue_free()

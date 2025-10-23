@@ -17,17 +17,17 @@ enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
 @export var component_names: Array[String] = []
 
 ## The current build component selected
-@export var current_build_component: PackedScene
+@export var current_build_component: String
 ## The current component id within the enum COMPONENT_REGISTRY, which gets passed to connections to check if they accept the component or not.
-var current_build_component_id: COMPONENT_REGISTRY
+#var current_build_component_id: COMPONENT_REGISTRY
 
 func _ready() -> void:
 	if build_components.size() > 0:
 		for i in build_components.keys():
 			component_names.append(i)
-		current_build_component = build_components.values()[0]
-		current_build_component_id = 0
-		DsBbGlobal.update_connections.emit(current_build_component_id)
+		#current_build_component = build_components.key()[0]
+		#current_build_component_id = 0
+		DsBbGlobal.update_connections.emit(current_build_component)
 		for i in component_names:
 			assert(i in COMPONENT_REGISTRY.keys(), "Component -->" + i + "<-- not found in the enum COMPONENT_REGISTRY! Please add the component name to the enum in the BaseBuilder Script.")
 			
@@ -39,10 +39,15 @@ func _process(delta: float) -> void:
 		snap.global_rotation = player.global_rotation
 
 ## This is the method to place a component at a connection point. Pass in the component scene, connection, and the node you want the component added as a child of.
-func place_component(component: PackedScene, connection: Connection, parent_node: Node3D) -> void:
+func place_component(component: String, connection: Connection, parent_node: Node3D) -> void:
 	if current_build_component == null:
 		return
-	var comp: BaseBuildComponent = component.instantiate()
+	var find_component: PackedScene = build_components.get(component)
+	var comp: BaseBuildComponent = find_component.instantiate()
 	parent_node.add_child(comp)
 	comp.global_transform = connection.global_transform
-	DsBbGlobal.update_connections.emit(current_build_component_id)
+	DsBbGlobal.update_connections.emit(COMPONENT_REGISTRY[current_build_component])
+
+## Deconstructs the parent of the focused Connection (if that Connection accepts "deconstruct")
+func deconstruct_component(connection: Connection) -> void:
+	connection.get_parent().queue_free()
