@@ -1,6 +1,7 @@
 class_name BaseBuilder
 extends Node3D
 
+## The Node that this BaseBuilder Scene belongs to. It doesn't have to be called Player, but it is the agent who is controlling the BaseBuilder.
 @export var player: Node3D
 @onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var snap: Node3D = %Snap
@@ -13,16 +14,23 @@ enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
 @export var build_components: Dictionary[String, PackedScene] = {
 }
 
+@export var component_names: Array[String] = []
+
 ## The current build component selected
 @export var current_build_component: PackedScene
+## The current component id within the enum COMPONENT_REGISTRY, which gets passed to connections to check if they accept the component or not.
 var current_build_component_id: COMPONENT_REGISTRY
 
 func _ready() -> void:
 	if build_components.size() > 0:
+		for i in build_components.keys():
+			component_names.append(i)
 		current_build_component = build_components.values()[0]
 		current_build_component_id = 0
 		DsBbGlobal.update_connections.emit(current_build_component_id)
-		
+		for i in component_names:
+			assert(i in COMPONENT_REGISTRY.keys(), "Component -->" + i + "<-- not found in the enum COMPONENT_REGISTRY! Please add the component name to the enum in the BaseBuilder Script.")
+			
 func _process(delta: float) -> void:
 	if connection_detect.current_focused_connection != null:
 		snap.global_transform = connection_detect.current_focused_connection.global_transform

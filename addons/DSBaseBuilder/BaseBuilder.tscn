@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://byw03gkb1bbxc"]
+[gd_scene load_steps=6 format=3 uid="uid://byw03gkb1bbxc"]
 
 [ext_resource type="Script" uid="uid://cbkbc7msnjcqt" path="res://addons/DSBaseBuilder/base_builder.gd" id="1_di84i"]
-[ext_resource type="PackedScene" uid="uid://den132rx3n7ij" path="res://addons/DSBaseBuilder/base_components_scenes/square_foundation.tscn" id="2_exntj"]
 [ext_resource type="Script" uid="uid://b6cjnhyo1fp5c" path="res://addons/DSBaseBuilder/connections/connection_detect.gd" id="3_2mvog"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdii2"]
@@ -17,9 +16,6 @@ albedo_color = Color(1.15514e-06, 0.639875, 0.642168, 1)
 
 [node name="BaseBuilder" type="Node3D"]
 script = ExtResource("1_di84i")
-build_components = Dictionary[String, PackedScene]({
-"square_foundation": ExtResource("2_exntj")
-})
 
 [node name="ConnectionDetect" type="Area3D" parent="."]
 unique_name_in_owner = true

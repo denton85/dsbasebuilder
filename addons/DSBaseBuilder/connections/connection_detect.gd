@@ -16,7 +16,7 @@ func _init() -> void:
 func _ready() -> void:
 	area_entered.connect(add_to_current_focused_connections)
 	area_exited.connect(remove_from_current_focused_connections)
-	
+
 func add_to_current_focused_connections(area: ConnectionHitbox) -> void:
 	if area is ConnectionHitbox:
 		if area.connection.enabled == false:

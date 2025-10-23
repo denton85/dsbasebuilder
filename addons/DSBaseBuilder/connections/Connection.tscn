@@ -10,6 +10,8 @@ script = ExtResource("1_yqpr8")
 metadata/_custom_type_script = "uid://dwdexp7xcunov"
 
 [node name="ConnectionHitbox" type="Area3D" parent="." node_paths=PackedStringArray("connection")]
+monitoring = false
+monitorable = false
 script = ExtResource("2_h1vun")
 connection = NodePath("..")
 metadata/_custom_type_script = "uid://bemctpgi025ri"
