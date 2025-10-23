@@ -27,9 +27,12 @@ func _physics_process(delta: float) -> void:
 		toggle_build_menu()
 		
 	if Input.is_action_just_pressed("left_click"):
-		if connection_detect.current_focused_connection == null:
+		if build_menu.visible == true:
 			return
-		base_builder.place_component(base_builder.current_build_component, connection_detect.current_focused_connection, Global.main)
+		if connection_detect.current_focused_connection == null:
+			base_builder.place_new_structure(base_builder.current_build_component, Global.main)
+		else:
+			base_builder.place_component(base_builder.current_build_component, connection_detect.current_focused_connection, Global.main)
 		
 func movement(delta: float) -> void:
 	# Add the gravity.

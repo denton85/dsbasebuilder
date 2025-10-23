@@ -7,15 +7,21 @@ extends Node3D
 @onready var snap: Node3D = %Snap
 @onready var connection_detect: ConnectionDetect = %ConnectionDetect
 
+## When you start a new foundation, it will create a Base Structure to hold all the components of the structure.
+const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_structure.tscn")
+
 ## When you add a new component, add it to the registry here so connections can see it.
 enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
-
 ## When you add a new component, give it the same name as in the registry and drag the scene into this exported dictionary.
 @export var build_components: Dictionary[String, PackedScene] = {
 	"deconstruct": null
 }
 
-@export var component_names: Array[String] = []
+## A list of components that are allowed to be placed by themselves without connecting to another component. (Foundations are most common).
+@export var foundation_components: Array[COMPONENT_REGISTRY]
+
+## An array of all the component names, used to check if the COMPONENT_REGISTRY is up to date.
+var component_names: Array[String] = []
 
 ## The current build component selected
 @export var current_build_component: String
@@ -54,4 +60,18 @@ func place_component(component: String, connection: Connection, parent_node: Nod
 
 ## Deconstructs the parent of the focused Connection (if that Connection accepts "deconstruct")
 func deconstruct_component(connection: Connection) -> void:
-	connection.get_parent().queue_free()
+	connection.get_parent().deconstruct()
+
+func place_new_structure(component: String, parent_node: Node3D) -> void:
+	if component == null:
+		return
+	if COMPONENT_REGISTRY[component] not in foundation_components:
+		return
+	var new_structure: BaseStructure = BASE_STRUCTURE.instantiate()
+	parent_node.add_child(new_structure)
+	new_structure.global_transform = snap.global_transform
+	var find_component: PackedScene = build_components.get(component)
+	var comp: BaseBuildComponent = find_component.instantiate()
+	new_structure.add_child(comp)
+	comp.structure = new_structure
+	DsBbGlobal.update_connections.emit(COMPONENT_REGISTRY[current_build_component])
