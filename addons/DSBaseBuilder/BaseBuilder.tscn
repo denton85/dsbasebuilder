@@ -30,7 +30,6 @@ shape = SubResource("BoxShape3D_kdii2")
 unique_name_in_owner = true
 
 [node name="CSGBox3D" type="CSGSphere3D" parent="Snap"]
-radius = 0.2
 material = SubResource("StandardMaterial3D_di84i")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]

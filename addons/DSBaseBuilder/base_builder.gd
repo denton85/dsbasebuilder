@@ -12,7 +12,7 @@ const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_struc
 
 ## When you add a new component, add it to the registry here so connections can see it.
 enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
-## When you add a new component, give it the same name as in the registry and drag the scene into this exported dictionary.
+## When you add a new component, give it the same name as in the registry and drag the scene into this exported dictionary. The "deconstruct" component does not need a scene, it is there when you need to destroy a component.
 @export var build_components: Dictionary[String, PackedScene] = {
 	"deconstruct": null
 }
@@ -23,7 +23,7 @@ enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
 ## An array of all the component names, used to check if the COMPONENT_REGISTRY is up to date.
 var component_names: Array[String] = []
 
-## The current build component selected
+## The current build component selected. This is a String, the name of the component in the build_components dictionary and the COMPONENT_REGISTRY enum.
 @export var current_build_component: String
 ## The current component id within the enum COMPONENT_REGISTRY, which gets passed to connections to check if they accept the component or not.
 #var current_build_component_id: COMPONENT_REGISTRY
@@ -41,12 +41,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if connection_detect.current_focused_connection != null:
 		snap.global_transform = connection_detect.current_focused_connection.global_transform
+		snap.visible = true
 	else:
 		snap.global_position = global_position
 		snap.global_rotation = player.global_rotation
+		snap.visible = false
+		
 
 ## This is the method to place a component at a connection point. Pass in the component scene, connection, and the node you want the component added as a child of.
-func place_component(component: String, connection: Connection, parent_node: Node3D) -> void:
+func place_component(component: String, connection: Connection, parent_node: Node3D, degrees_of_rotation: float = 0.0) -> void:
 	if current_build_component == null:
 		return
 	if component == "deconstruct":
@@ -56,13 +59,15 @@ func place_component(component: String, connection: Connection, parent_node: Nod
 	var comp: BaseBuildComponent = find_component.instantiate()
 	parent_node.add_child(comp)
 	comp.global_transform = connection.global_transform
+	comp.global_rotation.y += degrees_of_rotation
 	DsBbGlobal.update_connections.emit(COMPONENT_REGISTRY[current_build_component])
 
 ## Deconstructs the parent of the focused Connection (if that Connection accepts "deconstruct")
 func deconstruct_component(connection: Connection) -> void:
 	connection.get_parent().deconstruct()
 
-func place_new_structure(component: String, parent_node: Node3D) -> void:
+## This function creates a new Structure in an area not connected to another Structure. You can define which components are allowed to be placed in empty space in the exported Foundation Components array in the BaseBuilder (not connected to another Connection). For example, a Foundation component should be allowed to be placed without the need of an existing structure.
+func place_new_structure(component: String, parent_node: Node3D, degrees_of_rotation: float = 0.0) -> void:
 	if component == null:
 		return
 	if COMPONENT_REGISTRY[component] not in foundation_components:
@@ -73,5 +78,6 @@ func place_new_structure(component: String, parent_node: Node3D) -> void:
 	var find_component: PackedScene = build_components.get(component)
 	var comp: BaseBuildComponent = find_component.instantiate()
 	new_structure.add_child(comp)
+	comp.global_rotation.y += degrees_of_rotation
 	comp.structure = new_structure
 	DsBbGlobal.update_connections.emit(COMPONENT_REGISTRY[current_build_component])

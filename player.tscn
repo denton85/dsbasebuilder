@@ -31,7 +31,6 @@ build_components = Dictionary[String, PackedScene]({
 "wall": ExtResource("4_sweqy")
 })
 foundation_components = Array[int]([0])
-current_build_component = ""
 
 [node name="BuildMenu" parent="." node_paths=PackedStringArray("base_builder") instance=ExtResource("4_hqtel")]
 visible = false
