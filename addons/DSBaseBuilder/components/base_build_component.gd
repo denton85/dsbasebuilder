@@ -10,5 +10,6 @@ var structure: BaseStructure
 ## This defines the amount of rotation it will recieve every time the rotate action happens.
 @export var degrees_of_rotation: float = 0
 
+## This is the function to deconstruct the component.
 func deconstruct() -> void:
 	queue_free()

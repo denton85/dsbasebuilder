@@ -11,7 +11,7 @@ extends Node3D
 const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_structure.tscn")
 
 ## When you add a new component, add it to the registry here so connections can see it.
-enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct}
+enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct, doorway}
 ## When you add a new component, give it the same name as in the registry and drag the scene into this exported dictionary. The "deconstruct" component does not need a scene, it is there when you need to destroy a component.
 @export var build_components: Dictionary[String, PackedScene] = {
 	"deconstruct": null

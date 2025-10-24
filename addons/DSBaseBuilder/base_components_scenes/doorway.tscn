@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://drifebt1aff6i"]
+
+[ext_resource type="Script" uid="uid://cxihb03r5pfw4" path="res://addons/DSBaseBuilder/base_components_scenes/doorway.gd" id="1_cr5rg"]
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/base_components_scenes/brown_material.tres" id="2_1f101"]
+[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/base_components_scenes/dark_brown_material.tres" id="2_6haa8"]
+[ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/DSBaseBuilder/connections/Connection.tscn" id="3_6haa8"]
+
+[node name="Doorway" type="Node3D"]
+script = ExtResource("1_cr5rg")
+
+[node name="Side1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+use_collision = true
+size = Vector3(1, 4, 0.5)
+material = ExtResource("2_1f101")
+
+[node name="Side2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+use_collision = true
+size = Vector3(1, 4, 0.5)
+material = ExtResource("2_1f101")
+
+[node name="Top" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+use_collision = true
+size = Vector3(4.1, 0.6, 0.6)
+material = ExtResource("2_6haa8")
+
+[node name="Bot1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.25, 0)
+size = Vector3(1.1, 0.6, 0.6)
+material = ExtResource("2_6haa8")
+
+[node name="Bot2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.25, 0)
+size = Vector3(1.1, 0.6, 0.6)
+material = ExtResource("2_6haa8")
+
+[node name="Connection" parent="." instance=ExtResource("3_6haa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+accepts = Array[int]([2, 4])
+
+[node name="Deconstruct" parent="." instance=ExtResource("3_6haa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+accepts = Array[int]([3])
+
+[node name="CeilingConnection2" parent="." instance=ExtResource("3_6haa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2)
+accepts = Array[int]([1])
+
+[node name="CeilingConnection3" parent="." instance=ExtResource("3_6haa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2)
+accepts = Array[int]([1])
+
+[editable path="Connection"]
+[editable path="Deconstruct"]
+[editable path="CeilingConnection2"]
+[editable path="CeilingConnection3"]
