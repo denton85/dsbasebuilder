@@ -13,6 +13,7 @@ var enabled: bool = true
 func _ready() -> void:
 	DsBbGlobal.update_connections.connect(handle_update_connections)
 
+## Checks if this connection can accept the current component type, then sets it's Hitbox monitoring to reflect that.
 func handle_update_connections(component: int) -> void:
 	if accepts.has(component):
 		set_monitor(true)
