@@ -63,7 +63,7 @@ func deconstruct_component(connection: Connection) -> void:
 func place_new_structure(component: String, parent_node: Node3D, degrees_of_rotation: float = 0.0) -> void:
 	if component == null:
 		return
-	if COMPONENT_TYPE_REGISTRY[build_resources.get(component).type] not in foundation_components:
+	if build_resources.get(component).type not in foundation_components:
 		return
 	var new_structure: BaseStructure = BASE_STRUCTURE.instantiate()
 	parent_node.add_child(new_structure)
