@@ -12,7 +12,7 @@ Future Plans:
 
 Structure of this addon:
 
-- COMPONENT_TYPE_REGISTRY - careful when editing this, when you add new component types, add them to the end of the list to not mess up your omponent resource types. (it's an enum and if you've assigned new types to your list the integer values will change, unless you add to the end of the list)
+- COMPONENT_TYPE_REGISTRY - This is in the BaseBuilder script. It contains the "Component types". These define what components connections can accept in their own "accepts" array. If you edit this, do not remove the "deconstruct" type, or things will error. Otherwise, just make sure you assign a default integer value to whatever types you add. Try not to reuse an integer value of a type you previously deleted, unless you want to have to go back and change a bunch of Connections. Just use a new integer every time.
 - Component: This is a scene. It's your wall, foundation, ceiling, etc. It should inherit from on of the base classes.
 - DSComponentResource: this is the resource that holds you component scene and it's "type", so Connections know whether a component is allowed to be connected to them or not.
 - Connection: Instantiate these inside your component scenes, and use the exported array to tell the connection what component types it should accept (ie, Wall, Ceiling, etc. These are from the COMPONENT_TYPE_REGISTRY, which you can edit to add new component types if needed).

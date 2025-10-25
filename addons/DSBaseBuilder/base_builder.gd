@@ -10,8 +10,8 @@ extends Node3D
 ## When you start a new foundation, it will create a Base Structure to hold all the components of the structure.
 const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_structure.tscn")
 
-## The types of components your Connections accept. You don't need one for each component, just for specific types. For example, if a Wall and a Doorway component are always going to be added to the same type of Connection, you can just make both of them be the type: Wall. You can remove some of these and create your own types, but "deconstruct" shouldn't be deleted unless you want to custom code the "place_component" function to fix the errors that will come up.
-enum COMPONENT_TYPE_REGISTRY { foundation, wall, ceiling, triangle_foundation, triangle_ceiling, deconstruct }
+## The types of components your Connections accept. Deconstruct NEEDS to remain to not error, the rest can be removed if you don't want those base types. Just make sure as you add Types or remove them, assign them an integer value and don't reuse an old integer value unless you want to go back and change a bunch of Connection nodes.
+enum COMPONENT_TYPE_REGISTRY { foundation=0, wall=1, ceiling=2, triangle_foundation=3, triangle_ceiling=4, deconstruct=5 }
 
 ## All your build components live here. Name your component, then give it a resource that includes the title, type and scene. Currently the title might not do anything but it could be useful in your own code.
 @export var build_resources: Dictionary[String, DSComponentResource] = {
@@ -21,10 +21,7 @@ enum COMPONENT_TYPE_REGISTRY { foundation, wall, ceiling, triangle_foundation, t
 ## A list of components that are allowed to be placed by themselves without connecting to another component. (Foundations are most common).
 @export var foundation_components: Array[COMPONENT_TYPE_REGISTRY]
 
-## An array of all the component names, used to check if the COMPONENT_REGISTRY is up to date.
-var component_names: Array[String] = []
-
-## The current build component selected. This is a String, the name of the component in the build_components dictionary and the COMPONENT_REGISTRY enum.
+## The current build component selected. This is a String, the name of the component in the build_resources dictionary..
 @export var current_build_component: String
 
 func _ready() -> void:
