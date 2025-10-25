@@ -36,19 +36,19 @@ material = ExtResource("3_exso7")
 
 [node name="Connection" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-accepts = Array[int]([0])
+accepts = Array[int]([2])
 
 [node name="Connection2" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-accepts = Array[int]([0])
+accepts = Array[int]([2])
 
 [node name="Connection3" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-accepts = Array[int]([0])
+accepts = Array[int]([2])
 
 [node name="Connection4" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-accepts = Array[int]([0])
+accepts = Array[int]([2])
 
 [node name="WallConnection" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
@@ -67,7 +67,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 accepts = Array[int]([1])
 
 [node name="DeconstructConnection" parent="." instance=ExtResource("2_k6je4")]
-accepts = Array[int]([3])
+accepts = Array[int]([5])
+
+[node name="BackTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.155)
+accepts = Array[int]([4])
+
+[node name="FrontTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.155)
+accepts = Array[int]([4])
+
+[node name="LeftTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.155, 0, 0)
+accepts = Array[int]([4])
+
+[node name="RightTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.155, 0, 0)
+accepts = Array[int]([4])
 
 [editable path="Connection"]
 [editable path="Connection2"]
@@ -78,3 +94,7 @@ accepts = Array[int]([3])
 [editable path="WallConnection3"]
 [editable path="WallConnection4"]
 [editable path="DeconstructConnection"]
+[editable path="BackTri"]
+[editable path="FrontTri"]
+[editable path="LeftTri"]
+[editable path="RightTri"]

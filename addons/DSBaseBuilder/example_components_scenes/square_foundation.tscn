@@ -35,7 +35,7 @@ size = Vector3(1.1, 4.1, 1.1)
 material = ExtResource("3_vklq1")
 
 [node name="Connection" parent="." instance=ExtResource("3_stk7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -4)
 accepts = Array[int]([0])
 
 [node name="Connection2" parent="." instance=ExtResource("3_stk7d")]
@@ -43,11 +43,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 accepts = Array[int]([0])
 
 [node name="Connection3" parent="." instance=ExtResource("3_stk7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 0)
 accepts = Array[int]([0])
 
 [node name="Connection4" parent="." instance=ExtResource("3_stk7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 0)
 accepts = Array[int]([0])
 
 [node name="Connection5" parent="." instance=ExtResource("3_stk7d")]
@@ -66,5 +66,21 @@ accepts = Array[int]([1])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 accepts = Array[int]([1])
 
-[node name="DeconstructComponent" parent="." instance=ExtResource("3_stk7d")]
+[node name="TriBack" parent="." instance=ExtResource("3_stk7d")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.155)
 accepts = Array[int]([3])
+
+[node name="TriFront" parent="." instance=ExtResource("3_stk7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.155)
+accepts = Array[int]([3])
+
+[node name="TriRight" parent="." instance=ExtResource("3_stk7d")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.155, 0, 0)
+accepts = Array[int]([3])
+
+[node name="TriLeft" parent="." instance=ExtResource("3_stk7d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.155, 0, 0)
+accepts = Array[int]([3])
+
+[node name="DeconstructComponent" parent="." instance=ExtResource("3_stk7d")]
+accepts = Array[int]([5])

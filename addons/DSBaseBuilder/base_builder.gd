@@ -11,7 +11,7 @@ extends Node3D
 const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_structure.tscn")
 
 ## The types of components your Connections accept. You don't need one for each component, just for specific types. For example, if a Wall and a Doorway component are always going to be added to the same type of Connection, you can just make both of them be the type: Wall. You can remove some of these and create your own types, but "deconstruct" shouldn't be deleted unless you want to custom code the "place_component" function to fix the errors that will come up.
-enum COMPONENT_TYPE_REGISTRY { foundation, wall, ceiling, deconstruct }
+enum COMPONENT_TYPE_REGISTRY { foundation, wall, ceiling, triangle_foundation, triangle_ceiling, deconstruct }
 
 ## All your build components live here. Name your component, then give it a resource that includes the title, type and scene. Currently the title might not do anything but it could be useful in your own code.
 @export var build_resources: Dictionary[String, DSComponentResource] = {

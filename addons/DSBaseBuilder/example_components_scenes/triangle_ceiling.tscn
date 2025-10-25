@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfng6rblh4n0y"]
+
+[ext_resource type="Script" uid="uid://duvxdewghpobe" path="res://addons/DSBaseBuilder/components/foundation_component.gd" id="1_t8o6s"]
+[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/example_components_scenes/dark_brown_material.tres" id="2_rjrqo"]
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/example_components_scenes/brown_material.tres" id="3_otegq"]
+[ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/DSBaseBuilder/connections/Connection.tscn" id="4_en1ua"]
+
+[node name="TriangleCeiling" type="Node3D"]
+script = ExtResource("1_t8o6s")
+COMPONENT_TYPE = 4
+
+[node name="CenterPoint" type="Node3D" parent="."]
+
+[node name="Post1" type="CSGCylinder3D" parent="CenterPoint"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2.3)
+radius = 0.3
+height = 0.6
+material = ExtResource("2_rjrqo")
+
+[node name="Post2" type="CSGCylinder3D" parent="CenterPoint"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -1.155)
+radius = 0.3
+height = 0.6
+material = ExtResource("2_rjrqo")
+
+[node name="Post3" type="CSGCylinder3D" parent="CenterPoint"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, -1.155)
+radius = 0.3
+height = 0.6
+material = ExtResource("2_rjrqo")
+
+[node name="Side1" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.155)
+use_collision = true
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("3_otegq")
+
+[node name="Side2" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -1.00026, 0, 0.5775)
+use_collision = true
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("3_otegq")
+
+[node name="Side3" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 1.00026, 0, 0.5775)
+use_collision = true
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("3_otegq")
+
+[node name="Side4" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0.577695, 0, 0.333532)
+use_collision = true
+size = Vector3(3.4, 0.4, 1)
+material = ExtResource("3_otegq")
+
+[node name="Side5" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -0.114812, 0, -0.066287)
+use_collision = true
+size = Vector3(2.3, 0.45, 0.9)
+material = ExtResource("3_otegq")
+
+[node name="Side6" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -0.776393, 0, -0.44825)
+use_collision = true
+size = Vector3(1.7, 0.4, 0.7)
+material = ExtResource("3_otegq")
+
+[node name="Side7" type="CSGBox3D" parent="CenterPoint"]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -1.33052, 0, -0.768177)
+use_collision = true
+size = Vector3(1, 0.45, 0.7)
+material = ExtResource("3_otegq")
+
+[node name="LeftWallConnection" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 1.00026, 0, 0.5775)
+accepts = Array[int]([1])
+
+[node name="RightWallConnection" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -1.00026, 0, 0.5775)
+accepts = Array[int]([1])
+
+[node name="FrontWallConnection" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -5.96046e-08, 0, -1.155)
+accepts = Array[int]([1])
+
+[node name="Deconstruct" parent="." instance=ExtResource("4_en1ua")]
+accepts = Array[int]([5])
+
+[node name="LeftSquare" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 2.732, 0, 1.577)
+accepts = Array[int]([2])
+
+[node name="RightSquare" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, -2.732, 0, 1.577)
+accepts = Array[int]([2])
+
+[node name="FrontSquare" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -3.155)
+accepts = Array[int]([2])
+
+[node name="FrontTri" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, -2.31)
+accepts = Array[int]([4])
+
+[node name="RightTri" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -2, 0, 1.155)
+accepts = Array[int]([4])
+
+[node name="LeftTri" parent="." instance=ExtResource("4_en1ua")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 2, 0, 1.155)
+accepts = Array[int]([4])

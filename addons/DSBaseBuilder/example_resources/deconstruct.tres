@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_7v5nf")
 title = "deconstruct"
-type = 3
+type = 5
 metadata/_custom_type_script = "uid://1elhyxut7rbu"

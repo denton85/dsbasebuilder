@@ -39,9 +39,19 @@ accepts = Array[int]([1])
 
 [node name="DeconstructConnection" parent="." instance=ExtResource("3_bokhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-accepts = Array[int]([3])
+accepts = Array[int]([5])
+
+[node name="TriCeilingBack" parent="." instance=ExtResource("3_bokhw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, -1.155)
+accepts = Array[int]([4])
+
+[node name="TriCeilingFront" parent="." instance=ExtResource("3_bokhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1.155)
+accepts = Array[int]([4])
 
 [editable path="Connection"]
 [editable path="Connection2"]
 [editable path="WallConnection"]
 [editable path="DeconstructConnection"]
+[editable path="TriCeilingBack"]
+[editable path="TriCeilingFront"]
