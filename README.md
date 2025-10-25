@@ -8,6 +8,7 @@ Future Plans:
 - Add rotation
 - Add triangle base components
 - Add passing animations to functions? (pass in a "build" or "deconstruct" animation)
+- Make it so you can't build the same component on top of itself (turn off Connections when they are already have a component. Need to find a good way to do this while keeping it flexible and customizable.)
 
 Structure of this addon:
 
