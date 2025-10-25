@@ -8,7 +8,7 @@ var enabled: bool = true
 @onready var connection_hitbox: ConnectionHitbox = $ConnectionHitbox
 
 ## This defines what Components are allowed to be placed on this Connection. These options are defined in the BaseBuilder script inside the enum COMPONENT_REGISTRY.
-@export var accepts: Array[BaseBuilder.COMPONENT_REGISTRY] = []
+@export var accepts: Array[BaseBuilder.COMPONENT_TYPE_REGISTRY] = []
 
 func _ready() -> void:
 	DsBbGlobal.update_connections.connect(handle_update_connections)

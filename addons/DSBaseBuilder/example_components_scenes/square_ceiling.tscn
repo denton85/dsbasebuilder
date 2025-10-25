@@ -1,12 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://ci3f1me35i1yo"]
 
-[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/base_components_scenes/brown_material.tres" id="1_bxclf"]
-[ext_resource type="Script" uid="uid://dfkbp36acavrq" path="res://addons/DSBaseBuilder/base_components_scenes/square_ceiling.gd" id="1_tl2ue"]
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/example_components_scenes/brown_material.tres" id="1_bxclf"]
+[ext_resource type="Script" uid="uid://dfkbp36acavrq" path="res://addons/DSBaseBuilder/example_components_scenes/square_ceiling.gd" id="1_tl2ue"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/DSBaseBuilder/connections/Connection.tscn" id="2_k6je4"]
-[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/base_components_scenes/dark_brown_material.tres" id="3_exso7"]
+[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/example_components_scenes/dark_brown_material.tres" id="3_exso7"]
 
 [node name="SquareCeiling" type="Node3D"]
 script = ExtResource("1_tl2ue")
+COMPONENT_TYPE = 2
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
@@ -35,35 +36,35 @@ material = ExtResource("3_exso7")
 
 [node name="Connection" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
-accepts = Array[int]([1])
+accepts = Array[int]([0])
 
 [node name="Connection2" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-accepts = Array[int]([1])
+accepts = Array[int]([0])
 
 [node name="Connection3" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
-accepts = Array[int]([1])
+accepts = Array[int]([0])
 
 [node name="Connection4" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-accepts = Array[int]([1])
+accepts = Array[int]([0])
 
 [node name="WallConnection" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="WallConnection2" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="WallConnection3" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="WallConnection4" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="DeconstructConnection" parent="." instance=ExtResource("2_k6je4")]
 accepts = Array[int]([3])

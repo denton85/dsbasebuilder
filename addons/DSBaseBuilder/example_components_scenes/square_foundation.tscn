@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://den132rx3n7ij"]
 
-[ext_resource type="Script" uid="uid://ma3b73nvxjew" path="res://addons/DSBaseBuilder/base_components_scenes/square_foundation.gd" id="1_cfder"]
-[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/base_components_scenes/brown_material.tres" id="2_vklq1"]
+[ext_resource type="Script" uid="uid://ma3b73nvxjew" path="res://addons/DSBaseBuilder/example_components_scenes/square_foundation.gd" id="1_cfder"]
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/example_components_scenes/brown_material.tres" id="2_vklq1"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/DSBaseBuilder/connections/Connection.tscn" id="3_stk7d"]
-[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/base_components_scenes/dark_brown_material.tres" id="3_vklq1"]
+[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/example_components_scenes/dark_brown_material.tres" id="3_vklq1"]
 
 [node name="SquareFoundation" type="Node3D"]
 script = ExtResource("1_cfder")
@@ -52,19 +52,19 @@ accepts = Array[int]([0])
 
 [node name="Connection5" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="Connection6" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="Connection7" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="Connection8" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="DeconstructComponent" parent="." instance=ExtResource("3_stk7d")]
 accepts = Array[int]([3])

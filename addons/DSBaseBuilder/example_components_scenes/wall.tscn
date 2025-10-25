@@ -1,12 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://q7vl50cbfvyt"]
 
-[ext_resource type="Script" uid="uid://bdioucxqpdt0q" path="res://addons/DSBaseBuilder/base_components_scenes/wall.gd" id="1_vhdnq"]
-[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/base_components_scenes/dark_brown_material.tres" id="2_bokhw"]
-[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/base_components_scenes/brown_material.tres" id="2_prya8"]
+[ext_resource type="Script" uid="uid://bdioucxqpdt0q" path="res://addons/DSBaseBuilder/example_components_scenes/wall.gd" id="1_vhdnq"]
+[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/DSBaseBuilder/example_components_scenes/dark_brown_material.tres" id="2_bokhw"]
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/DSBaseBuilder/example_components_scenes/brown_material.tres" id="2_prya8"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/DSBaseBuilder/connections/Connection.tscn" id="3_bokhw"]
 
 [node name="Wall" type="Node3D"]
 script = ExtResource("1_vhdnq")
+COMPONENT_TYPE = 1
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -26,15 +27,15 @@ material = ExtResource("2_bokhw")
 
 [node name="Connection" parent="." instance=ExtResource("3_bokhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2)
-accepts = Array[int]([1])
+accepts = Array[int]([2])
 
 [node name="Connection2" parent="." instance=ExtResource("3_bokhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2)
-accepts = Array[int]([1])
+accepts = Array[int]([2])
 
 [node name="WallConnection" parent="." instance=ExtResource("3_bokhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-accepts = Array[int]([2, 4])
+accepts = Array[int]([1])
 
 [node name="DeconstructConnection" parent="." instance=ExtResource("3_bokhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

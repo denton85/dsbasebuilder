@@ -10,33 +10,26 @@ extends Node3D
 ## When you start a new foundation, it will create a Base Structure to hold all the components of the structure.
 const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_structure.tscn")
 
-## When you add a new component, add it to the registry here so connections can see it.
-enum COMPONENT_REGISTRY {foundation, ceiling, wall, deconstruct, doorway}
-## When you add a new component, give it the same name as in the registry and drag the scene into this exported dictionary. The "deconstruct" component does not need a scene, it is there when you need to destroy a component.
-@export var build_components: Dictionary[String, PackedScene] = {
+## The types of components your Connections accept. You don't need one for each component, just for specific types. For example, if a Wall and a Doorway component are always going to be added to the same type of Connection, you can just make both of them be the type: Wall. You can remove some of these and create your own types, but "deconstruct" shouldn't be deleted unless you want to custom code the "place_component" function to fix the errors that will come up.
+enum COMPONENT_TYPE_REGISTRY { foundation, wall, ceiling, deconstruct }
+
+## All your build components live here. Name your component, then give it a resource that includes the title, type and scene. Currently the title might not do anything but it could be useful in your own code.
+@export var build_resources: Dictionary[String, DSComponentResource] = {
 	"deconstruct": null
 }
 
 ## A list of components that are allowed to be placed by themselves without connecting to another component. (Foundations are most common).
-@export var foundation_components: Array[COMPONENT_REGISTRY]
+@export var foundation_components: Array[COMPONENT_TYPE_REGISTRY]
 
 ## An array of all the component names, used to check if the COMPONENT_REGISTRY is up to date.
 var component_names: Array[String] = []
 
 ## The current build component selected. This is a String, the name of the component in the build_components dictionary and the COMPONENT_REGISTRY enum.
 @export var current_build_component: String
-## The current component id within the enum COMPONENT_REGISTRY, which gets passed to connections to check if they accept the component or not.
-#var current_build_component_id: COMPONENT_REGISTRY
 
 func _ready() -> void:
-	if build_components.size() > 0:
-		for i in build_components.keys():
-			component_names.append(i)
-		#current_build_component = build_components.key()[0]
-		#current_build_component_id = 0
+	if build_resources.size() > 0:
 		DsBbGlobal.update_connections.emit(current_build_component)
-		for i in component_names:
-			assert(i in COMPONENT_REGISTRY.keys(), "Component -->" + i + "<-- not found in the enum COMPONENT_REGISTRY! Please add the component name to the enum in the BaseBuilder Script.")
 			
 func _process(delta: float) -> void:
 	if connection_detect.current_focused_connection != null:
@@ -55,12 +48,12 @@ func place_component(component: String, connection: Connection, parent_node: Nod
 	if component == "deconstruct":
 		deconstruct_component(connection)
 		return
-	var find_component: PackedScene = build_components.get(component)
+	var find_component: PackedScene = build_resources.get(component).scene
 	var comp: BaseBuildComponent = find_component.instantiate()
 	parent_node.add_child(comp)
 	comp.global_transform = connection.global_transform
 	comp.global_rotation.y += degrees_of_rotation
-	DsBbGlobal.update_connections.emit(COMPONENT_REGISTRY[current_build_component])
+	DsBbGlobal.update_connections.emit(build_resources.get(component).type)
 
 ## Deconstructs the parent of the focused Connection (if that Connection accepts "deconstruct")
 func deconstruct_component(connection: Connection) -> void:
@@ -70,14 +63,14 @@ func deconstruct_component(connection: Connection) -> void:
 func place_new_structure(component: String, parent_node: Node3D, degrees_of_rotation: float = 0.0) -> void:
 	if component == null:
 		return
-	if COMPONENT_REGISTRY[component] not in foundation_components:
+	if COMPONENT_TYPE_REGISTRY[build_resources.get(component).type] not in foundation_components:
 		return
 	var new_structure: BaseStructure = BASE_STRUCTURE.instantiate()
 	parent_node.add_child(new_structure)
 	new_structure.global_transform = snap.global_transform
-	var find_component: PackedScene = build_components.get(component)
+	var find_component: PackedScene = build_resources.get(component).scene
 	var comp: BaseBuildComponent = find_component.instantiate()
 	new_structure.add_child(comp)
 	comp.global_rotation.y += degrees_of_rotation
 	comp.structure = new_structure
-	DsBbGlobal.update_connections.emit(COMPONENT_REGISTRY[current_build_component])
+	DsBbGlobal.update_connections.emit(build_resources.get(component).type)

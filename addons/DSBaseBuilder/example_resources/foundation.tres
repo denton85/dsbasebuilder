@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DSComponentResource" load_steps=3 format=3 uid="uid://c8lko1hbjd8xy"]
+
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/DSBaseBuilder/components/component_resource.gd" id="1_86tr6"]
+[ext_resource type="PackedScene" uid="uid://den132rx3n7ij" path="res://addons/DSBaseBuilder/example_components_scenes/square_foundation.tscn" id="1_d3le2"]
+
+[resource]
+script = ExtResource("1_86tr6")
+title = "foundation"
+type = 0
+scene = ExtResource("1_d3le2")
+metadata/_custom_type_script = "uid://1elhyxut7rbu"

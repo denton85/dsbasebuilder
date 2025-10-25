@@ -6,7 +6,7 @@ extends Control
 const COMPONENT_BUTTON = preload("res://example_ui/component_button.tscn")
 
 func _ready() -> void:
-	for key in base_builder.build_components:
+	for key in base_builder.build_resources:
 		var b: ComponentButton = COMPONENT_BUTTON.instantiate()
 		b.text = key.to_upper()
 		b.build_component = key
