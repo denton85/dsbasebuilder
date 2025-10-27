@@ -44,5 +44,10 @@ foundation_components = Array[int]([0, 3])
 visible = false
 base_builder = NodePath("../Camera3D/BaseBuilder")
 
+[node name="GridContainer" parent="BuildMenu/PanelContainer" index="0"]
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 3
+
 [editable path="Camera3D/BaseBuilder"]
 [editable path="BuildMenu"]

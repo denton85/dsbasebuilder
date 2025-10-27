@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://cmp4t5grh7h70" path="res://example_ui/component_button.gd" id="1_0i556"]
 
 [node name="ComponentButton" type="Button"]
-theme_override_font_sizes/font_size = 50
+custom_minimum_size = Vector2(0, 100)
+theme_override_font_sizes/font_size = 35
 text = "Test"
 script = ExtResource("1_0i556")
 
