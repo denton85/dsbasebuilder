@@ -44,12 +44,14 @@ func place_component(component: String, connection: Connection, parent_node: Nod
 	if component == "deconstruct":
 		deconstruct_component(connection)
 		return
-	var find_component: PackedScene = build_resources.get(component).scene
-	var comp: BaseBuildComponent = find_component.instantiate()
-	parent_node.add_child(comp)
-	comp.global_transform = connection.global_transform
-	comp.global_rotation.y += degrees_of_rotation
-	DsBbGlobal.update_connections.emit(build_resources.get(component).type)
+	if connection.current_components.size() < connection.max_components:
+		var find_component: PackedScene = build_resources.get(component).scene
+		var comp: BaseBuildComponent = find_component.instantiate()
+		parent_node.add_child(comp)
+		connection.current_components.append(comp)
+		comp.global_transform = connection.global_transform
+		comp.global_rotation.y += degrees_of_rotation
+		DsBbGlobal.update_connections.emit(build_resources.get(component).type)
 
 ## Deconstructs the parent of the focused Connection (if that Connection accepts "deconstruct")
 func deconstruct_component(connection: Connection) -> void:

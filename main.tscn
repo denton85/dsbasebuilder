@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmnwnh6pardqb"]
+[gd_scene load_steps=7 format=3 uid="uid://bmnwnh6pardqb"]
 
 [ext_resource type="Script" uid="uid://pd8rhkvpeqtx" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://g76alnfr8hn2" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://den132rx3n7ij" path="res://addons/DSBaseBuilder/example_components_scenes/square_foundation.tscn" id="2_0xm2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -38,8 +37,3 @@ material = SubResource("StandardMaterial3D_7dm0k")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451351, 0)
-
-[node name="SquareFoundation" parent="." instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0536, 0.620086, 4.18119)
-
-[editable path="SquareFoundation"]
