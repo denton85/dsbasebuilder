@@ -28,7 +28,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="BaseBuilder" parent="Camera3D" node_paths=PackedStringArray("player") instance=ExtResource("2_onrkg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.11162)
-player = NodePath("../..")
 build_resources = Dictionary[String, ExtResource("7_urp6f")]({
 "ceiling": ExtResource("10_u1c27"),
 "deconstruct": ExtResource("12_q13i1"),
@@ -39,6 +38,7 @@ build_resources = Dictionary[String, ExtResource("7_urp6f")]({
 "wall": ExtResource("9_606se")
 })
 foundation_components = Array[int]([0, 3])
+player = NodePath("../..")
 
 [node name="BuildMenu" parent="." node_paths=PackedStringArray("base_builder") instance=ExtResource("4_hqtel")]
 visible = false

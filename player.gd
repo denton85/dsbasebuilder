@@ -22,6 +22,11 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("toggle_build_state"):
 		is_building = !is_building
+		if is_building == false:
+			DsBbGlobal.update_connections.emit(400000)
+		else:
+			if base_builder.build_resources.get(base_builder.current_build_component) != null:
+				DsBbGlobal.update_connections.emit(base_builder.build_resources.get(base_builder.current_build_component).type)
 		
 	if Input.is_action_just_pressed("toggle_build_menu"):
 		toggle_build_menu()
