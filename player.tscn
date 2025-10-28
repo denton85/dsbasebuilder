@@ -27,7 +27,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="BaseBuilder" parent="Camera3D" node_paths=PackedStringArray("player") instance=ExtResource("2_onrkg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.11162)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.11162)
 player = NodePath("../..")
 build_resources = Dictionary[String, ExtResource("7_urp6f")]({
 "ceiling": ExtResource("10_u1c27"),
@@ -48,6 +48,14 @@ base_builder = NodePath("../Camera3D/BaseBuilder")
 theme_override_constants/h_separation = 25
 theme_override_constants/v_separation = 25
 columns = 3
+
+[node name="Label" type="Label" parent="."]
+offset_left = 98.0
+offset_top = 524.0
+offset_right = 328.0
+offset_bottom = 573.0
+text = "Press E to toggle Build State
+Press Tab to open Build Menu"
 
 [editable path="Camera3D/BaseBuilder"]
 [editable path="BuildMenu"]

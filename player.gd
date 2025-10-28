@@ -26,8 +26,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("toggle_build_menu"):
 		toggle_build_menu()
 		
+	if is_building == false:
+		base_builder.hide()
+	else:
+		base_builder.show()
+		
 	if Input.is_action_just_pressed("left_click"):
-		if build_menu.visible == true:
+		if build_menu.visible == true or is_building == false:
 			return
 		if connection_detect.current_focused_connection == null:
 			base_builder.place_new_structure(base_builder.current_build_component, Global.main)

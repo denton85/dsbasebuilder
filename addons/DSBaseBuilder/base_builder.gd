@@ -3,7 +3,7 @@ extends Node3D
 
 ## The Node that this BaseBuilder Scene belongs to. It doesn't have to be called Player, but it is the agent who is controlling the BaseBuilder.
 @export var player: Node3D
-@onready var spring_arm_3d: SpringArm3D = $SpringArm3D
+#@onready var spring_arm_3d: SpringArm3D = $SpringArm3D
 @onready var snap: Node3D = %Snap
 @onready var connection_detect: ConnectionDetect = %ConnectionDetect
 
@@ -23,6 +23,7 @@ enum COMPONENT_TYPE_REGISTRY { foundation=0, wall=1, ceiling=2, triangle_foundat
 
 ## The current build component selected. This is a String, the name of the component in the build_resources dictionary..
 @export var current_build_component: String
+@export var current_preview_scene: ComponentPreview
 
 func _ready() -> void:
 	if build_resources.size() > 0:
@@ -31,11 +32,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if connection_detect.current_focused_connection != null:
 		snap.global_transform = connection_detect.current_focused_connection.global_transform
-		snap.visible = true
 	else:
 		snap.global_position = global_position
 		snap.global_rotation = player.global_rotation
-		snap.visible = false
 		
 
 ## This is the method to place a component at a connection point. Pass in the component scene, connection, and the node you want the component added as a child of.
@@ -71,3 +70,15 @@ func place_new_structure(component: String, parent_node: Node3D, degrees_of_rota
 	comp.global_rotation.y += degrees_of_rotation
 	comp.structure = new_structure
 	DsBbGlobal.update_connections.emit(build_resources.get(component).type)
+
+func set_build_preview() -> void:
+	for child in snap.get_children():
+		if child is ComponentPreview:
+			child.queue_free()
+			current_preview_scene = null
+	var prev: PackedScene = build_resources.get(current_build_component).preview_scene
+	if prev == null:
+		return
+	current_preview_scene = prev.instantiate()
+	snap.add_child(current_preview_scene)
+	

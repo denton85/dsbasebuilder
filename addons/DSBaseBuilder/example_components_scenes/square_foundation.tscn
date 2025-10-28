@@ -34,35 +34,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -2, 1.5)
 size = Vector3(1.1, 4.1, 1.1)
 material = ExtResource("3_vklq1")
 
-[node name="Connection" parent="." instance=ExtResource("3_stk7d")]
+[node name="FoundationConnection" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -4)
 accepts = Array[int]([0])
 
-[node name="Connection2" parent="." instance=ExtResource("3_stk7d")]
+[node name="FoundationConnection2" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 accepts = Array[int]([0])
 
-[node name="Connection3" parent="." instance=ExtResource("3_stk7d")]
+[node name="FoundationConnection3" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 0)
 accepts = Array[int]([0])
 
-[node name="Connection4" parent="." instance=ExtResource("3_stk7d")]
+[node name="FoundationConnection4" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 0)
 accepts = Array[int]([0])
 
-[node name="Connection5" parent="." instance=ExtResource("3_stk7d")]
+[node name="WallConnection5" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
 accepts = Array[int]([1])
 
-[node name="Connection6" parent="." instance=ExtResource("3_stk7d")]
+[node name="WallConnection6" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 0)
 accepts = Array[int]([1])
 
-[node name="Connection7" parent="." instance=ExtResource("3_stk7d")]
+[node name="WallConnection7" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 accepts = Array[int]([1])
 
-[node name="Connection8" parent="." instance=ExtResource("3_stk7d")]
+[node name="WallConnection8" parent="." instance=ExtResource("3_stk7d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 accepts = Array[int]([1])
 

@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cbkbc7msnjcqt" path="res://addons/DSBaseBuilder/base_builder.gd" id="1_di84i"]
 [ext_resource type="Script" uid="uid://b6cjnhyo1fp5c" path="res://addons/DSBaseBuilder/connections/connection_detect.gd" id="3_2mvog"]
+[ext_resource type="Shader" uid="uid://d034bpenbmfdn" path="res://addons/DSBaseBuilder/example_components_scenes/example_previews/preview_shader.gdshader" id="3_di84i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdii2"]
-size = Vector3(1, 1, 4)
+size = Vector3(1, 1, 5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_di84i"]
-transparency = 2
-alpha_scissor_threshold = 0.5
-alpha_antialiasing_mode = 0
-albedo_color = Color(1.15514e-06, 0.639875, 0.642168, 1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_xkyht"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exntj"]
+render_priority = 0
+shader = ExtResource("3_di84i")
+shader_parameter/swirl_color = Color(0.3, 0.7, 1, 0.3)
+shader_parameter/swirl_speed = 1.0
+shader_parameter/swirl_scale = 5.0
 
 [node name="BaseBuilder" type="Node3D"]
 script = ExtResource("1_di84i")
@@ -29,10 +29,5 @@ shape = SubResource("BoxShape3D_kdii2")
 [node name="Snap" type="Node3D" parent="."]
 unique_name_in_owner = true
 
-[node name="CSGBox3D" type="CSGSphere3D" parent="Snap"]
-material = SubResource("StandardMaterial3D_di84i")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-shape = SubResource("SphereShape3D_xkyht")
-spring_length = 10.0
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Snap"]
+material = SubResource("ShaderMaterial_exntj")

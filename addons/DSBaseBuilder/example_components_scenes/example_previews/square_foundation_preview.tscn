@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqf4pto6duv08"]
+
+[ext_resource type="Script" uid="uid://cl3iw0nicr31m" path="res://addons/DSBaseBuilder/components/component_preview.gd" id="1_1mxeh"]
+[ext_resource type="Shader" uid="uid://d034bpenbmfdn" path="res://addons/DSBaseBuilder/example_components_scenes/example_previews/preview_shader.gdshader" id="1_o6jnc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mxeh"]
+render_priority = 0
+shader = ExtResource("1_o6jnc")
+shader_parameter/swirl_color = Color(0.3, 0.7, 1, 0.3)
+shader_parameter/swirl_speed = 1.0
+shader_parameter/swirl_scale = 5.0
+
+[node name="SquareFoundationPreview" type="Node3D"]
+script = ExtResource("1_1mxeh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+size = Vector3(4, 4, 4)
+material = SubResource("ShaderMaterial_1mxeh")

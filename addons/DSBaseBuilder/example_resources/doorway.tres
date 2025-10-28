@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="DSComponentResource" load_steps=3 format=3 uid="uid://bqpi5owm2oosi"]
+[gd_resource type="Resource" script_class="DSComponentResource" load_steps=4 format=3 uid="uid://bqpi5owm2oosi"]
 
 [ext_resource type="PackedScene" uid="uid://drifebt1aff6i" path="res://addons/DSBaseBuilder/example_components_scenes/doorway.tscn" id="1_7npjl"]
+[ext_resource type="PackedScene" uid="uid://vaanpydkwnxg" path="res://addons/DSBaseBuilder/example_components_scenes/example_previews/doorway_preview.tscn" id="1_crnn4"]
 [ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/DSBaseBuilder/components/component_resource.gd" id="1_kloqb"]
 
 [resource]
@@ -8,4 +9,5 @@ script = ExtResource("1_kloqb")
 title = "doorway"
 type = 1
 scene = ExtResource("1_7npjl")
+preview_scene = ExtResource("1_crnn4")
 metadata/_custom_type_script = "uid://1elhyxut7rbu"
