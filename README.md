@@ -5,8 +5,7 @@ You can add your own building components, meaning it can be useful in any game w
 
 Future Plans:
 
-- Add rotation
-- Add previews of the component scenes so you can see what component you have active in front of you.
+- Add rotation (technically already there, you just have to implement your own rotation)
 - Add passing animations to functions? (pass in a "build" or "deconstruct" animation)
 - Make it so you can't build the same component on top of itself (turn off Connections when they are already have a component. Need to find a good way to do this while keeping it flexible and customizable.)
 
