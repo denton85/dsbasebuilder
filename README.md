@@ -7,7 +7,8 @@ Future Plans:
 
 - Add rotation (technically already there, you just have to implement your own rotation)
 - Add passing animations to functions? (pass in a "build" or "deconstruct" animation)
-- Make it so you can't build the same component on top of itself (turn off Connections when they are already have a component. Need to find a good way to do this while keeping it flexible and customizable.)
+- Add Previews to connections (show which connections are active, allow for toggling previews on and off)
+- Make some methods in the DsBBGlobal autoload to toggle certain features (like previews, etc). An API of sorts to interact with the settings.
 
 Structure of this addon:
 
