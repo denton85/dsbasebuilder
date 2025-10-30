@@ -4,5 +4,8 @@ extends Node3D
 ## A list of all the components living in this structure.
 var children: Array[BaseBuildComponent] = []
 
+## First Foundation Node (needed to update the connections since there may not be overlap)
+var first_foundation: BaseBuildComponent
+
 ## If you need multiplayer, something like this could be edited to fit your permissions for who can build on this structure.
 @export var owners: Array[Player] = []

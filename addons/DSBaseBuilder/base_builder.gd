@@ -47,8 +47,12 @@ func place_component(component: String, connection: Connection, parent_node: Nod
 	if connection.current_components.size() < connection.max_components:
 		var find_component: PackedScene = build_resources.get(component).scene
 		var comp: BaseBuildComponent = find_component.instantiate()
-		parent_node.add_child(comp)
 		connection.current_components.append(comp)
+		connection.parent.structure.children.append(comp)
+		comp.parent_connection = connection
+		comp.structure = connection.parent.structure
+		parent_node.add_child(comp)
+		connection.enabled = false
 		comp.global_transform = connection.global_transform
 		comp.global_rotation.y += degrees_of_rotation
 		DsBbGlobal.update_connections.emit(build_resources.get(component).type)
@@ -69,6 +73,8 @@ func place_new_structure(component: String, parent_node: Node3D, degrees_of_rota
 	var find_component: PackedScene = build_resources.get(component).scene
 	var comp: BaseBuildComponent = find_component.instantiate()
 	new_structure.add_child(comp)
+	new_structure.children.append(comp)
+	new_structure.first_foundation = comp
 	comp.global_rotation.y += degrees_of_rotation
 	comp.structure = new_structure
 	DsBbGlobal.update_connections.emit(build_resources.get(component).type)

@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func add_to_current_focused_connections(area: ConnectionHitbox) -> void:
 	if area is ConnectionHitbox:
+		area.connection.update_current_connections()
 		if area.connection.enabled == false:
 			return
 		if current_focused_connection != null:

@@ -37,7 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.25, 0)
 size = Vector3(1.1, 0.6, 0.6)
 material = ExtResource("2_6haa8")
 
-[node name="Connection" parent="." instance=ExtResource("3_6haa8")]
+[node name="WallConnection" parent="." instance=ExtResource("3_6haa8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 accepts = Array[int]([1])
 
@@ -61,7 +61,7 @@ accepts = Array[int]([4])
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1.155)
 accepts = Array[int]([4])
 
-[editable path="Connection"]
+[editable path="WallConnection"]
 [editable path="Deconstruct"]
 [editable path="CeilingConnection2"]
 [editable path="CeilingConnection3"]
