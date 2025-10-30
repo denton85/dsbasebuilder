@@ -10,7 +10,7 @@ extends Node3D
 ## When you start a new foundation, it will create a Base Structure to hold all the components of the structure.
 const BASE_STRUCTURE = preload("res://addons/DSBaseBuilder/components/base_structure.tscn")
 
-## The types of components your Connections accept. Deconstruct NEEDS to remain to not error, the rest can be removed if you don't want those base types. Just make sure as you add Types or remove them, assign them an integer value and don't reuse an old integer value unless you want to go back and change a bunch of Connection nodes.
+## The types of components your Connections accept. Deconstruct NEEDS to remain (otherwise it will error), the rest can be removed if you don't want those base types. Just make sure as you add Types or remove them, assign them an integer value and don't reuse an old integer value unless you want to go back and change a bunch of Connection nodes.
 enum COMPONENT_TYPE_REGISTRY { foundation=0, wall=1, ceiling=2, triangle_foundation=3, triangle_ceiling=4, deconstruct=5 }
 
 ## All your build components live here. Name your component, then give it a resource that includes the title, type and scene. Currently the title might not do anything but it could be useful in your own code.
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		snap.global_rotation = player.global_rotation
 		
 
-## This is the method to place a component at a connection point. Pass in the component scene, connection, and the node you want the component added as a child of.
+## This is the method to place a component at a connection point. Pass in the component scene, connection, and the node you want the component added as a child of. You can also specify the degrees of rotation around the Y axis (for rotateable components).
 func place_component(component: String, connection: Connection, parent_node: Node3D, degrees_of_rotation: float = 0.0) -> void:
 	if current_build_component == null:
 		return

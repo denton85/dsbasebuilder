@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://cwqv810xp5x84"]
+[gd_scene load_steps=3 format=3 uid="uid://cwqv810xp5x84"]
+
+[ext_resource type="Script" uid="uid://v0sdeixdof06" path="res://addons/DSBaseBuilder/components/base_build_component.gd" id="1_olvtc"]
+[ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/DSBaseBuilder/connections/Connection.tscn" id="2_1e6d1"]
 
 [node name="DemoTestFail" type="Node3D"]
+script = ExtResource("1_olvtc")
+metadata/_custom_type_script = "uid://v0sdeixdof06"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="Connection" parent="." instance=ExtResource("2_1e6d1")]
+accepts = Array[int]([5])
+
+[node name="Connection2" parent="." instance=ExtResource("2_1e6d1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+accepts = Array[int]([4])
