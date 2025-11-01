@@ -2,6 +2,8 @@
 class_name Connection
 extends Node3D
 
+@onready var preview_node: CSGBox3D = $PreviewNode
+
 ## The Parent Build Component (This is needed to be set, or make sure the Connection is a direct child of the component so the ready function will grab it.).
 @export var parent: BaseBuildComponent
 var enabled: bool = true
@@ -29,8 +31,17 @@ func handle_update_connections(component: int) -> void:
 	if accepts.has(component):
 		set_monitor(true)
 		update_current_connections()
+		toggle_connection_previews(true)
 	else:
 		set_monitor(false)
+		toggle_connection_previews(false)
+
+func toggle_connection_previews(value: bool) -> void:
+	if DsBbGlobal.show_previews == true:
+		if value == true:
+			preview_node.show()
+		else:
+			preview_node.hide()
 
 ## Sets the Connection to monitor or not depending on the current build component, toggled when DsBBGlobal.update_connections() is called.
 func set_monitor(value: bool) -> void:

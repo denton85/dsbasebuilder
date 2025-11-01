@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bne3htb4acllm"]
+[gd_scene load_steps=6 format=3 uid="uid://bne3htb4acllm"]
 
 [ext_resource type="Script" uid="uid://dwdexp7xcunov" path="res://addons/DSBaseBuilder/connections/connection.gd" id="1_yqpr8"]
 [ext_resource type="Script" uid="uid://bemctpgi025ri" path="res://addons/DSBaseBuilder/connections/connection_hitbox.gd" id="2_h1vun"]
+[ext_resource type="Shader" uid="uid://d034bpenbmfdn" path="res://addons/DSBaseBuilder/example_components_scenes/example_previews/preview_shader.gdshader" id="3_xur7c"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xur7c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abo0b"]
+render_priority = 0
+shader = ExtResource("3_xur7c")
+shader_parameter/swirl_color = Color(0.702468, 0.618781, 0.854842, 0.3)
+shader_parameter/swirl_speed = 1.0
+shader_parameter/swirl_scale = 5.0
 
 [node name="Connection" type="Node3D"]
 script = ExtResource("1_yqpr8")
@@ -18,3 +26,8 @@ metadata/_custom_type_script = "uid://bemctpgi025ri"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ConnectionHitbox"]
 shape = SubResource("SphereShape3D_xur7c")
+
+[node name="PreviewNode" type="CSGBox3D" parent="."]
+visible = false
+size = Vector3(0.1, 1, 0.1)
+material = SubResource("ShaderMaterial_abo0b")
