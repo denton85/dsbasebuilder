@@ -3,7 +3,7 @@ extends Node3D
 
 ## The Node that this BaseBuilder Scene belongs to. It doesn't have to be called Player, but it is the agent who is controlling the BaseBuilder.
 @export var player: Node3D
-#@onready var spring_arm_3d: SpringArm3D = $SpringArm3D
+
 @onready var snap: Node3D = %Snap
 @onready var connection_detect: ConnectionDetect = %ConnectionDetect
 
@@ -27,6 +27,7 @@ enum COMPONENT_TYPE_REGISTRY { foundation=0, wall=1, ceiling=2, triangle_foundat
 @export var current_build_component: String
 @export var current_preview_scene: ComponentPreview
 
+## The amount that the snap node is rotated. This can be set in your own scripts with a hotkey, for example "R" adds a certain amount of rotation to this variable depending on the currently selected component (which has a property degrees_of_rotation).
 @export var snap_rotation: float = 0.0
 
 func _ready() -> void:

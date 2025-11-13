@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="DSComponentResource" load_steps=4 format=3 uid="uid://chvb8jp3otgo"]
 
-[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/ds_basebuilder/components/component_resource.gd" id="1_3dtsp"]
-[ext_resource type="PackedScene" uid="uid://djbcjbhfmxg8v" path="res://addons/ds_basebuilder/example_components_scenes/stairway.tscn" id="1_7ts8k"]
-[ext_resource type="PackedScene" uid="uid://cg6ff0jlgstaa" path="res://addons/ds_basebuilder/example_components_scenes/example_previews/stairway_preview.tscn" id="1_hewu8"]
+[ext_resource type="PackedScene" uid="uid://cg6ff0jlgstaa" path="res://addons/ds_basebuilder/example_components_scenes/example_previews/stairway_preview.tscn" id="1_4e2bj"]
+[ext_resource type="PackedScene" uid="uid://djbcjbhfmxg8v" path="res://addons/ds_basebuilder/example_components_scenes/stairway.tscn" id="2_m8r5k"]
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/ds_basebuilder/components/component_resource.gd" id="3_pyqnk"]
 
 [resource]
-script = ExtResource("1_3dtsp")
+script = ExtResource("3_pyqnk")
 title = "stairway"
 type = 6
-scene = ExtResource("1_7ts8k")
-preview_scene = ExtResource("1_hewu8")
+scene = ExtResource("2_m8r5k")
+preview_scene = ExtResource("1_4e2bj")
 is_rotatable = true
 degrees_of_rotation = 90.0
 metadata/_custom_type_script = "uid://1elhyxut7rbu"

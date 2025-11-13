@@ -1,8 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://byw03gkb1bbxc"]
+[gd_scene load_steps=15 format=3 uid="uid://byw03gkb1bbxc"]
 
 [ext_resource type="Script" uid="uid://cbkbc7msnjcqt" path="res://addons/ds_basebuilder/base_builder.gd" id="1_di84i"]
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/ds_basebuilder/components/component_resource.gd" id="2_3g641"]
 [ext_resource type="Script" uid="uid://b6cjnhyo1fp5c" path="res://addons/ds_basebuilder/connections/connection_detect.gd" id="3_2mvog"]
 [ext_resource type="Shader" uid="uid://d034bpenbmfdn" path="res://addons/ds_basebuilder/example_components_scenes/example_previews/preview_shader.gdshader" id="3_di84i"]
+[ext_resource type="Resource" uid="uid://bde4jfnphwb1r" path="res://addons/ds_basebuilder/example_resources/deconstruct.tres" id="3_n2xtw"]
+[ext_resource type="Resource" uid="uid://c8lko1hbjd8xy" path="res://addons/ds_basebuilder/example_resources/foundation.tres" id="3_r3yxd"]
+[ext_resource type="Resource" uid="uid://uddtbtxapjgo" path="res://addons/ds_basebuilder/example_resources/ceiling.tres" id="4_n2xtw"]
+[ext_resource type="Resource" uid="uid://dn7cksggchxpb" path="res://addons/ds_basebuilder/example_resources/triangle_foundation.tres" id="5_4xrb2"]
+[ext_resource type="Resource" uid="uid://cay3r6cdx8n4h" path="res://addons/ds_basebuilder/example_resources/triangle_ceiling.tres" id="6_43crk"]
+[ext_resource type="Resource" uid="uid://bto4hx2dgfond" path="res://addons/ds_basebuilder/example_resources/wall.tres" id="7_crnwd"]
+[ext_resource type="Resource" uid="uid://bqpi5owm2oosi" path="res://addons/ds_basebuilder/example_resources/doorway.tres" id="8_4qtrq"]
+[ext_resource type="Resource" uid="uid://chvb8jp3otgo" path="res://addons/ds_basebuilder/example_resources/stairway.tres" id="9_ru3jw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kdii2"]
 size = Vector3(1, 1, 5)
@@ -16,6 +25,16 @@ shader_parameter/swirl_scale = 5.0
 
 [node name="BaseBuilder" type="Node3D"]
 script = ExtResource("1_di84i")
+build_resources = Dictionary[String, ExtResource("2_3g641")]({
+"deconstruct": ExtResource("3_n2xtw"),
+"doorway": ExtResource("8_4qtrq"),
+"square_ceiling": ExtResource("4_n2xtw"),
+"square_foundation": ExtResource("3_r3yxd"),
+"stairway": ExtResource("9_ru3jw"),
+"triangle_ceiling": ExtResource("6_43crk"),
+"triangle_foundation": ExtResource("5_4xrb2"),
+"wall": ExtResource("7_crnwd")
+})
 
 [node name="ConnectionDetect" type="Area3D" parent="."]
 unique_name_in_owner = true

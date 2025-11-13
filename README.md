@@ -5,7 +5,6 @@ You can add your own building components, meaning it can be useful in any game w
 
 Future Plans:
 
-- Add rotation (technically already there, you just have to implement your own rotation)
 - Add passing animations to functions? (pass in a "build" or "deconstruct" animation)
 - Make some methods in the DsBBGlobal autoload to toggle certain features (like previews, etc). An API of sorts to interact with the settings.
 
@@ -21,13 +20,6 @@ BaseBuilder Scene:
 This is how you can build with components in your scene. It detects Connection Points using the ConnectionDetect area3d.
 The BaseBuilder node holds a dictionary of resources (your custom build components). They have a name and a resource which you create for each new component (called DSComponentResource).
 The BaseBuilder script has an ENUM called COMPONENT_TYPE_REGISTRY. Make sure your component resource has the correct Type associated with it, so it can only be added to the correct Connections.
-
-Base Component Classes: (these may introduce extra properties, currently none)
-
-- BaseBuildComponent
-- FoundationComponent
-- WallComponent
-- CeilingComponent
 
 Creating a new building component:
 Make a scene, in the script you can extend one of the base classes.
