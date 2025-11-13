@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://djbcjbhfmxg8v"]
+
+[ext_resource type="Script" uid="uid://dendl7o5fw2ur" path="res://addons/ds_basebuilder/example_components_scenes/stairway.gd" id="1_ki17d"]
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/ds_basebuilder/example_components_scenes/brown_material.tres" id="2_riog0"]
+[ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/ds_basebuilder/connections/Connection.tscn" id="3_p1kue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1kue"]
+size = Vector3(4, 0.1, 5.7)
+
+[node name="Stairway" type="Node3D"]
+script = ExtResource("1_ki17d")
+COMPONENT_TYPE = 6
+
+[node name="CeilingConnection" parent="." instance=ExtResource("3_p1kue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)
+accepts = Array[int]([2])
+
+[node name="DoowayConnection" parent="." instance=ExtResource("3_p1kue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -2)
+accepts = Array[int]([1])
+
+[node name="TriangleCeilingConnection" parent="." instance=ExtResource("3_p1kue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -3.155)
+accepts = Array[int]([1])
+
+[node name="Deconstruct" parent="." instance=ExtResource("3_p1kue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+accepts = Array[int]([5])
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CsgBox" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, -1.75)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, -1.25)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, -0.75)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -0.25)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0.25)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0.75)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 1.25)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 1.75)
+size = Vector3(4, 0.5, 0.5)
+material = ExtResource("2_riog0")
+
+[node name="Leg1" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.98175, -1.75)
+size = Vector3(0.4, 4, 0.4)
+material = ExtResource("2_riog0")
+
+[node name="Leg2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.982, -1.75)
+size = Vector3(0.4, 4, 0.4)
+material = ExtResource("2_riog0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.98094, 0.0190587)
+shape = SubResource("BoxShape3D_p1kue")

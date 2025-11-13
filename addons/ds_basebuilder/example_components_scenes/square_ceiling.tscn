@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci3f1me35i1yo"]
+
+[ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/ds_basebuilder/example_components_scenes/brown_material.tres" id="1_bxclf"]
+[ext_resource type="Script" uid="uid://dfkbp36acavrq" path="res://addons/ds_basebuilder/example_components_scenes/square_ceiling.gd" id="1_tl2ue"]
+[ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/ds_basebuilder/connections/Connection.tscn" id="2_k6je4"]
+[ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/ds_basebuilder/example_components_scenes/dark_brown_material.tres" id="3_exso7"]
+
+[node name="SquareCeiling" type="Node3D"]
+script = ExtResource("1_tl2ue")
+COMPONENT_TYPE = 2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(4, 0.5, 4)
+material = ExtResource("1_bxclf")
+
+[node name="Beam" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+size = Vector3(4.1, 0.6, 0.6)
+material = ExtResource("3_exso7")
+
+[node name="Beam2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+size = Vector3(4.1, 0.6, 0.6)
+material = ExtResource("3_exso7")
+
+[node name="Beam3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.99968, 0, 0)
+size = Vector3(4.1, 0.6, 0.6)
+material = ExtResource("3_exso7")
+
+[node name="Beam4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.99968, 0, 0)
+size = Vector3(4.1, 0.6, 0.6)
+material = ExtResource("3_exso7")
+
+[node name="Connection" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+accepts = Array[int]([2])
+
+[node name="Connection2" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+accepts = Array[int]([2])
+
+[node name="Connection3" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+accepts = Array[int]([2])
+
+[node name="Connection4" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+accepts = Array[int]([2])
+
+[node name="WallConnection" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+accepts = Array[int]([1])
+
+[node name="WallConnection2" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 0)
+accepts = Array[int]([1])
+
+[node name="WallConnection3" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+accepts = Array[int]([1])
+
+[node name="WallConnection4" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+accepts = Array[int]([1])
+
+[node name="DeconstructConnection" parent="." instance=ExtResource("2_k6je4")]
+accepts = Array[int]([5])
+
+[node name="CenterConnection" parent="." instance=ExtResource("2_k6je4")]
+accepts = Array[int]([6])
+
+[node name="BackTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.155)
+accepts = Array[int]([4])
+
+[node name="FrontTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.155)
+accepts = Array[int]([4])
+
+[node name="LeftTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.155, 0, 0)
+accepts = Array[int]([4])
+
+[node name="RightTri" parent="." instance=ExtResource("2_k6je4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.155, 0, 0)
+accepts = Array[int]([4])
+
+[editable path="Connection"]
+[editable path="Connection2"]
+[editable path="Connection3"]
+[editable path="Connection4"]
+[editable path="WallConnection"]
+[editable path="WallConnection2"]
+[editable path="WallConnection3"]
+[editable path="WallConnection4"]
+[editable path="DeconstructConnection"]
+[editable path="CenterConnection"]
+[editable path="BackTri"]
+[editable path="FrontTri"]
+[editable path="LeftTri"]
+[editable path="RightTri"]

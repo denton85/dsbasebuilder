@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5woborm8astm"]
-
-[ext_resource type="Script" uid="uid://vxxwmybgl7no" path="res://addons/DSBaseBuilder/components/base_structure.gd" id="1_k3h3f"]
-
-[node name="BaseStructure" type="Node3D"]
-script = ExtResource("1_k3h3f")

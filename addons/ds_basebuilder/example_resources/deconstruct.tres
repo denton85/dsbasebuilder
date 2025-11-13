@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DSComponentResource" load_steps=2 format=3 uid="uid://bde4jfnphwb1r"]
+
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/ds_basebuilder/components/component_resource.gd" id="1_7v5nf"]
+
+[resource]
+script = ExtResource("1_7v5nf")
+title = "deconstruct"
+type = 5
+metadata/_custom_type_script = "uid://1elhyxut7rbu"

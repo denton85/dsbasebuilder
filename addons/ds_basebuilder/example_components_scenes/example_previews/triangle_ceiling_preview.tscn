@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce8spkwrqnoq8"]
+
+[ext_resource type="Script" uid="uid://cl3iw0nicr31m" path="res://addons/ds_basebuilder/components/component_preview.gd" id="1_rrv2t"]
+[ext_resource type="Shader" uid="uid://d034bpenbmfdn" path="res://addons/ds_basebuilder/example_components_scenes/example_previews/preview_shader.gdshader" id="2_40412"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrv2t"]
+render_priority = 0
+shader = ExtResource("2_40412")
+shader_parameter/swirl_color = Color(0.3, 0.7, 1, 0.3)
+shader_parameter/swirl_speed = 1.0
+shader_parameter/swirl_scale = 5.0
+
+[node name="TriangleCeilingPreview" type="Node3D"]
+script = ExtResource("1_rrv2t")
+
+[node name="Post1" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2.3)
+radius = 0.3
+height = 0.6
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Post2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0, -1.155)
+radius = 0.3
+height = 0.6
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Post3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, -1.155)
+radius = 0.3
+height = 0.6
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.155)
+size = Vector3(4, 0.5, 0.5)
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side2" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -1.00026, 0, 0.5775)
+size = Vector3(4, 0.5, 0.5)
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side3" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 1.00026, 0, 0.5775)
+size = Vector3(4, 0.5, 0.5)
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side4" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0.577695, 0, 0.333532)
+size = Vector3(3.4, 0.4, 1)
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side5" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -0.114812, 0, -0.066287)
+size = Vector3(2.3, 0.45, 0.9)
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side6" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -0.776393, 0, -0.44825)
+size = Vector3(1.7, 0.4, 0.7)
+material = SubResource("ShaderMaterial_rrv2t")
+
+[node name="Side7" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, -1.33052, 0, -0.768177)
+size = Vector3(1, 0.45, 0.7)
+material = SubResource("ShaderMaterial_rrv2t")

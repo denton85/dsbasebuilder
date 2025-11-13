@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DsBbGlobal="*res://addons/DSBaseBuilder/DsBBGlobal.gd"
+DsBbGlobal="*res://addons/ds_basebuilder/DsBBGlobal.gd"
 Global="*res://Global.gd"
 
 [debug]
@@ -27,6 +27,10 @@ gdscript/warnings/untyped_declaration=2
 [display]
 
 window/size/mode=3
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ds_basebuilder/plugin.cfg")
 
 [input]
 

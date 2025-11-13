@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DSComponentResource" load_steps=4 format=3 uid="uid://bto4hx2dgfond"]
+
+[ext_resource type="PackedScene" uid="uid://q7vl50cbfvyt" path="res://addons/ds_basebuilder/example_components_scenes/wall.tscn" id="1_2ft6y"]
+[ext_resource type="PackedScene" uid="uid://b1j4stxjdusbo" path="res://addons/ds_basebuilder/example_components_scenes/example_previews/wall_preview.tscn" id="1_i0ox0"]
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/ds_basebuilder/components/component_resource.gd" id="1_tuofj"]
+
+[resource]
+script = ExtResource("1_tuofj")
+title = "wall"
+type = 1
+scene = ExtResource("1_2ft6y")
+preview_scene = ExtResource("1_i0ox0")
+metadata/_custom_type_script = "uid://1elhyxut7rbu"

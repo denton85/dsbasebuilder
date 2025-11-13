@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DSComponentResource" load_steps=4 format=3 uid="uid://uddtbtxapjgo"]
+
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/ds_basebuilder/components/component_resource.gd" id="1_6oist"]
+[ext_resource type="PackedScene" uid="uid://cqpvwy2ew424x" path="res://addons/ds_basebuilder/example_components_scenes/example_previews/square_ceiling_preview.tscn" id="1_gveb5"]
+[ext_resource type="PackedScene" uid="uid://ci3f1me35i1yo" path="res://addons/ds_basebuilder/example_components_scenes/square_ceiling.tscn" id="1_l6vsj"]
+
+[resource]
+script = ExtResource("1_6oist")
+title = "ceiling"
+type = 2
+scene = ExtResource("1_l6vsj")
+preview_scene = ExtResource("1_gveb5")
+metadata/_custom_type_script = "uid://1elhyxut7rbu"
