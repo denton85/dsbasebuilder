@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://g76alnfr8hn2"]
+[gd_scene load_steps=14 format=3 uid="uid://g76alnfr8hn2"]
 
 [ext_resource type="Script" uid="uid://dag12kefal1de" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://byw03gkb1bbxc" path="res://addons/DSBaseBuilder/BaseBuilder.tscn" id="2_onrkg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://dn7cksggchxpb" path="res://addons/DSBaseBuilder/example_resources/triangle_foundation.tres" id="9_n7ghd"]
 [ext_resource type="Resource" uid="uid://cay3r6cdx8n4h" path="res://addons/DSBaseBuilder/example_resources/triangle_ceiling.tres" id="10_nvl01"]
 [ext_resource type="Resource" uid="uid://uddtbtxapjgo" path="res://addons/DSBaseBuilder/example_resources/ceiling.tres" id="10_u1c27"]
+[ext_resource type="Resource" uid="uid://chvb8jp3otgo" path="res://addons/DSBaseBuilder/example_resources/stairway.tres" id="11_ivps1"]
 [ext_resource type="Resource" uid="uid://bqpi5owm2oosi" path="res://addons/DSBaseBuilder/example_resources/doorway.tres" id="11_op7ga"]
 [ext_resource type="Resource" uid="uid://bde4jfnphwb1r" path="res://addons/DSBaseBuilder/example_resources/deconstruct.tres" id="12_q13i1"]
 
@@ -34,6 +35,7 @@ build_resources = Dictionary[String, ExtResource("7_urp6f")]({
 "deconstruct": ExtResource("12_q13i1"),
 "doorway": ExtResource("11_op7ga"),
 "foundation": ExtResource("8_bwjto"),
+"stairway": ExtResource("11_ivps1"),
 "triangle_ceiling": ExtResource("10_nvl01"),
 "triangle_foundation": ExtResource("9_n7ghd"),
 "wall": ExtResource("9_606se")

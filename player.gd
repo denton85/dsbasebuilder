@@ -20,6 +20,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	
+	if Input.is_action_just_pressed("rotate_component"):
+		if base_builder.build_resources.get(base_builder.current_build_component) != null and base_builder.build_resources.get(base_builder.current_build_component).is_rotatable:
+			base_builder.snap_rotation += base_builder.build_resources.get(base_builder.current_build_component).degrees_of_rotation
+			print(base_builder.snap_rotation)
+	
 	if Input.is_action_just_pressed("toggle_build_state"):
 		is_building = !is_building
 		if is_building == false:

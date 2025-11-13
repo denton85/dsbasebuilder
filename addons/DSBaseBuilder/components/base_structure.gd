@@ -9,3 +9,8 @@ var first_foundation: BaseBuildComponent
 
 ## If you need multiplayer, something like this could be edited to fit your permissions for who can build on this structure.
 @export var owners: Array[Player] = []
+
+func deconstruct_structure() -> void:
+	DsBbGlobal.total_structures.erase(self)
+	print(DsBbGlobal.total_structures)
+	queue_free()

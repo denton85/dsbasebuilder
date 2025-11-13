@@ -13,3 +13,8 @@ extends Resource
 
 ## This holds the preview of your component if you want to display that before building.
 @export var preview_scene: PackedScene
+
+## This defines whether the component should be able to be rotated before being placed.
+@export var is_rotatable: bool = false
+## This defines the amount of rotation it will recieve every time the rotate action happens.
+@export var degrees_of_rotation: float = 0

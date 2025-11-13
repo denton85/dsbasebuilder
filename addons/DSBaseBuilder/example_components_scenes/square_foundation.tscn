@@ -84,3 +84,6 @@ accepts = Array[int]([3])
 
 [node name="DeconstructComponent" parent="." instance=ExtResource("3_stk7d")]
 accepts = Array[int]([5])
+
+[node name="CenterConnection" parent="." instance=ExtResource("3_stk7d")]
+accepts = Array[int]([6])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DSComponentResource" load_steps=4 format=3 uid="uid://chvb8jp3otgo"]
+
+[ext_resource type="Script" uid="uid://1elhyxut7rbu" path="res://addons/DSBaseBuilder/components/component_resource.gd" id="1_3dtsp"]
+[ext_resource type="PackedScene" uid="uid://djbcjbhfmxg8v" path="res://addons/DSBaseBuilder/example_components_scenes/stairway.tscn" id="1_7ts8k"]
+[ext_resource type="PackedScene" uid="uid://cg6ff0jlgstaa" path="res://addons/DSBaseBuilder/example_components_scenes/example_previews/stairway_preview.tscn" id="1_hewu8"]
+
+[resource]
+script = ExtResource("1_3dtsp")
+title = "stairway"
+type = 6
+scene = ExtResource("1_7ts8k")
+preview_scene = ExtResource("1_hewu8")
+is_rotatable = true
+degrees_of_rotation = 90.0
+metadata/_custom_type_script = "uid://1elhyxut7rbu"

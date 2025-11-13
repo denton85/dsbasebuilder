@@ -69,6 +69,9 @@ accepts = Array[int]([1])
 [node name="DeconstructConnection" parent="." instance=ExtResource("2_k6je4")]
 accepts = Array[int]([5])
 
+[node name="CenterConnection" parent="." instance=ExtResource("2_k6je4")]
+accepts = Array[int]([6])
+
 [node name="BackTri" parent="." instance=ExtResource("2_k6je4")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.155)
 accepts = Array[int]([4])
@@ -94,6 +97,7 @@ accepts = Array[int]([4])
 [editable path="WallConnection3"]
 [editable path="WallConnection4"]
 [editable path="DeconstructConnection"]
+[editable path="CenterConnection"]
 [editable path="BackTri"]
 [editable path="FrontTri"]
 [editable path="LeftTri"]
