@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://den132rx3n7ij"]
 
-[ext_resource type="Script" uid="uid://ma3b73nvxjew" path="res://addons/ds_basebuilder/example_components_scenes/square_foundation.gd" id="1_cfder"]
+[ext_resource type="Script" uid="uid://v0sdeixdof06" path="res://addons/ds_basebuilder/components/base_build_component.gd" id="1_4cocg"]
 [ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/ds_basebuilder/example_components_scenes/brown_material.tres" id="2_vklq1"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/ds_basebuilder/connections/Connection.tscn" id="3_stk7d"]
 [ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/ds_basebuilder/example_components_scenes/dark_brown_material.tres" id="3_vklq1"]
 
 [node name="SquareFoundation" type="Node3D"]
-script = ExtResource("1_cfder")
+script = ExtResource("1_4cocg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)

@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://drifebt1aff6i"]
 
-[ext_resource type="Script" uid="uid://cxihb03r5pfw4" path="res://addons/ds_basebuilder/example_components_scenes/doorway.gd" id="1_cr5rg"]
+[ext_resource type="Script" uid="uid://v0sdeixdof06" path="res://addons/ds_basebuilder/components/base_build_component.gd" id="1_5jj6y"]
 [ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/ds_basebuilder/example_components_scenes/brown_material.tres" id="2_1f101"]
 [ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/ds_basebuilder/example_components_scenes/dark_brown_material.tres" id="2_6haa8"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/ds_basebuilder/connections/Connection.tscn" id="3_6haa8"]
 
 [node name="Doorway" type="Node3D"]
-script = ExtResource("1_cr5rg")
-COMPONENT_TYPE = 1
+script = ExtResource("1_5jj6y")
 
 [node name="Side1" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)

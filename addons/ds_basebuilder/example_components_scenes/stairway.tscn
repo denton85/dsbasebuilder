@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djbcjbhfmxg8v"]
 
-[ext_resource type="Script" uid="uid://dendl7o5fw2ur" path="res://addons/ds_basebuilder/example_components_scenes/stairway.gd" id="1_ki17d"]
+[ext_resource type="Script" uid="uid://v0sdeixdof06" path="res://addons/ds_basebuilder/components/base_build_component.gd" id="1_vpgjx"]
 [ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/ds_basebuilder/example_components_scenes/brown_material.tres" id="2_riog0"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/ds_basebuilder/connections/Connection.tscn" id="3_p1kue"]
 
@@ -8,8 +8,7 @@
 size = Vector3(4, 0.1, 5.7)
 
 [node name="Stairway" type="Node3D"]
-script = ExtResource("1_ki17d")
-COMPONENT_TYPE = 6
+script = ExtResource("1_vpgjx")
 
 [node name="CeilingConnection" parent="." instance=ExtResource("3_p1kue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -4)

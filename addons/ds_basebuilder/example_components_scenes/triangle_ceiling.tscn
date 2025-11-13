@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfng6rblh4n0y"]
 
-[ext_resource type="Script" uid="uid://duvxdewghpobe" path="res://addons/ds_basebuilder/components/foundation_component.gd" id="1_t8o6s"]
+[ext_resource type="Script" uid="uid://v0sdeixdof06" path="res://addons/ds_basebuilder/components/base_build_component.gd" id="1_8csy2"]
 [ext_resource type="Material" uid="uid://x4elnp2etm22" path="res://addons/ds_basebuilder/example_components_scenes/dark_brown_material.tres" id="2_rjrqo"]
 [ext_resource type="Material" uid="uid://b5qkl6glreqb5" path="res://addons/ds_basebuilder/example_components_scenes/brown_material.tres" id="3_otegq"]
 [ext_resource type="PackedScene" uid="uid://bne3htb4acllm" path="res://addons/ds_basebuilder/connections/Connection.tscn" id="4_en1ua"]
 
 [node name="TriangleCeiling" type="Node3D"]
-script = ExtResource("1_t8o6s")
-COMPONENT_TYPE = 4
+script = ExtResource("1_8csy2")
 
 [node name="CenterPoint" type="Node3D" parent="."]
 
